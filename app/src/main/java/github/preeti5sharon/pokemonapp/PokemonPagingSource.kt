@@ -10,12 +10,16 @@ class PokemonPagingSource(private val service: PokemonService) :
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PokemonItemResult> {
-        val offset = params.key ?: 0
-        val limit = params.loadSize
-        val response = service.fetchPokemonList(offset, limit)
-        val list = response.results ?: emptyList()
-        val previousKey = if (response.previous.isNullOrEmpty()) null else offset - limit
-        val nextKey = if (response.next.isNullOrEmpty()) null else offset + limit
-        return LoadResult.Page(list, previousKey, nextKey)
+        return try {
+            val offset = params.key ?: 0
+            val limit = params.loadSize
+            val response = service.fetchPokemonList(offset, limit)
+            val list = response.results ?: emptyList()
+            val previousKey = if (response.previous.isNullOrEmpty()) null else offset - limit
+            val nextKey = if (response.next.isNullOrEmpty()) null else offset + limit
+            LoadResult.Page(list, previousKey, nextKey)
+        } catch (e: Exception) {
+            LoadResult.Error(e)
+        }
     }
 }
