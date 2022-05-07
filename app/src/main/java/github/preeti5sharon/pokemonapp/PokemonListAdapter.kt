@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import github.preeti5sharon.pokemonapp.databinding.PokemonListItemBinding
 
 class PokemonListAdapter :
@@ -14,6 +15,14 @@ class PokemonListAdapter :
         val binding = PokemonListItemBinding.bind(holder.itemView)
         val item = getItem(position)
         binding.textView.text = item?.name
+        val pokemonIndex = item?.url?.dropLast(1)?.takeLastWhile {
+            it.isDigit()
+        } ?: position + 1
+        binding.imageView.load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$pokemonIndex.png"){
+            crossfade(true)
+//            placeholder(R.drawable.image)
+//            transformations(CircleCropTransformation())
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
