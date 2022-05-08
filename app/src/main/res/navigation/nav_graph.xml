@@ -7,5 +7,13 @@
     <fragment
         android:id="@+id/pokemonListFragment"
         android:name="github.preeti5sharon.pokemonapp.PokemonListFragment"
-        android:label="PokemonListFragment" />
+        android:label="PokemonListFragment" >
+        <action
+            android:id="@+id/action_pokemonListFragment_to_pokemonDetailsFragment"
+            app:destination="@id/pokemonDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pokemonDetailsFragment"
+        android:name="github.preeti5sharon.pokemonapp.PokemonDetailsFragment"
+        android:label="PokemonDetailsFragment" />
 </navigation>

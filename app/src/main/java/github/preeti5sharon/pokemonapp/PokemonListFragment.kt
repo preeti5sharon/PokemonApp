@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import github.preeti5sharon.pokemonapp.databinding.FragmentPokemonListBinding
 import kotlinx.coroutines.flow.collectLatest
@@ -29,6 +30,9 @@ class PokemonListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        pokemonListAdapter.onClick = {
+            findNavController().navigate(R.id.action_pokemonListFragment_to_pokemonDetailsFragment)
+        }
         _binding?.recyclerView?.adapter = pokemonListAdapter
         lifecycleScope.launch() {
             viewModel.getPokemonList().collectLatest {
