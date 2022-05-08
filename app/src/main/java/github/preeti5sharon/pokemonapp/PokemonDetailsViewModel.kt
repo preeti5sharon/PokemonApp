@@ -15,8 +15,8 @@ class PokemonDetailsViewModel @Inject constructor(
 ) : ViewModel() {
     private val _pokemonDetailsData = MutableLiveData<PokemonDetailResponse>()
     val pokemonDetailsData: LiveData<PokemonDetailResponse> = _pokemonDetailsData
-    fun getPokemonDetails() = viewModelScope.launch {
-        val response = repository.getPokemonDetails()
+    fun getPokemonDetails(index:Int) = viewModelScope.launch {
+        val response = repository.getPokemonDetails(index)
         _pokemonDetailsData.postValue(response)
     }
 }

@@ -15,5 +15,5 @@ class PokemonRepository(
         }.flow
     }
 
-    suspend fun getPokemonDetails() = service.fetchPokemonDetails()
+    suspend fun getPokemonDetails(index:Int) = service.fetchPokemonDetails(index)
 }

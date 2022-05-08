@@ -31,7 +31,7 @@ class PokemonListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pokemonListAdapter.onClick = {
-            findNavController().navigate(R.id.action_pokemonListFragment_to_pokemonDetailsFragment)
+            findNavController().navigate(PokemonListFragmentDirections.actionPokemonListFragmentToPokemonDetailsFragment(it))
         }
         _binding?.recyclerView?.adapter = pokemonListAdapter
         lifecycleScope.launch() {

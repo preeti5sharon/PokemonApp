@@ -15,5 +15,10 @@
     <fragment
         android:id="@+id/pokemonDetailsFragment"
         android:name="github.preeti5sharon.pokemonapp.PokemonDetailsFragment"
-        android:label="PokemonDetailsFragment" />
+        android:label="PokemonDetailsFragment" >
+        <argument
+            android:name="index"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
 </navigation>
