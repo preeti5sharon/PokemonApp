@@ -15,7 +15,7 @@ class PokemonListAdapter :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val binding = PokemonListItemBinding.bind(holder.itemView)
         val item = getItem(position)
-        binding.textView.text = item?.name
+        binding.textView.text = item?.name?.capitalize()
         val pokemonIndex = item?.url?.dropLast(1)?.takeLastWhile {
             it.isDigit()
         } ?: position + 1
@@ -23,6 +23,10 @@ class PokemonListAdapter :
             crossfade(true)
 //            placeholder(R.drawable.image)
 //            transformations(CircleCropTransformation())
+            listener { request, result ->
+                val color = calcDominantColor(result.drawable)
+                color?.let { it1 -> binding.imageViewBackground.setBackgroundColor(it1) }
+            }
         }
         binding.root.setOnClickListener {
             onClick?.invoke(position + 1)

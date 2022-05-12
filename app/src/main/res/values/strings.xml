@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pokemon App</string>
+    <string name="height">Height: %d cm</string>
+    <string name="weight">Weight: %d kg</string>
 </resources>

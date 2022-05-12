@@ -33,8 +33,14 @@ class PokemonDetailsFragment : Fragment() {
                 crossfade(true)
 //            placeholder(R.drawable.image)
 //            transformations(CircleCropTransformation())
+                listener { request, result ->
+                    val color = calcDominantColor(result.drawable)
+                    color?.let { it1 -> binding?.root?.setBackgroundColor(it1) }
+                }
             }
-            binding?.textView?.text = it.name
+            binding?.textView?.text = it.name?.capitalize()
+            binding?.textViewHeight?.text = getString(R.string.height, it.height?.times(10))
+            binding?.textViewWeight?.text = getString(R.string.weight, it.weight?.toFloat()?.div(10))
         }
     }
 
@@ -42,4 +48,6 @@ class PokemonDetailsFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+
+
 }
