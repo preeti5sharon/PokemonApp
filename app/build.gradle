@@ -66,8 +66,8 @@ dependencies {
 
     //hilt
 
-    implementation 'com.google.dagger:hilt-android:2.41'
-    kapt 'com.google.dagger:hilt-compiler:2.41'
+    implementation 'com.google.dagger:hilt-android:2.44'
+    kapt 'com.google.dagger:hilt-compiler:2.44'
 
     //live data
 //    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
