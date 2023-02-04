@@ -1,4 +1,4 @@
-package github.preeti5sharon.pokemonapp
+package github.preeti5sharon.pokemonapp.api
 
 import github.preeti5sharon.pokemonapp.data.PokemonDetailResponse
 import retrofit2.http.GET

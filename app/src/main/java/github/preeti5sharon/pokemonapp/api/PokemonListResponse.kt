@@ -1,4 +1,4 @@
-package github.preeti5sharon.pokemonapp
+package github.preeti5sharon.pokemonapp.api
 
 
 import com.squareup.moshi.JsonClass

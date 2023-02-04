@@ -1,4 +1,4 @@
-package github.preeti5sharon.pokemonapp
+package github.preeti5sharon.pokemonapp.paging
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,9 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import github.preeti5sharon.pokemonapp.R
+import github.preeti5sharon.pokemonapp.api.PokemonItemResult
+import github.preeti5sharon.pokemonapp.calcDominantColor
 import github.preeti5sharon.pokemonapp.databinding.PokemonListItemBinding
 
 class PokemonListAdapter :

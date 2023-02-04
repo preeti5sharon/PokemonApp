@@ -1,5 +1,6 @@
-package github.preeti5sharon.pokemonapp
+package github.preeti5sharon.pokemonapp.fragment
 
+import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import github.preeti5sharon.pokemonapp.databinding.FragmentPokemonListBinding
+import github.preeti5sharon.pokemonapp.paging.PokemonListAdapter
+import github.preeti5sharon.pokemonapp.viewmodel.PokemonListViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 

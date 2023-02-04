@@ -1,7 +1,10 @@
-package github.preeti5sharon.pokemonapp
+package github.preeti5sharon.pokemonapp.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import github.preeti5sharon.pokemonapp.api.PokemonItemResult
+import github.preeti5sharon.pokemonapp.api.PokemonService
+import java.util.Collections.emptyList
 
 class PokemonPagingSource(private val service: PokemonService) :
     PagingSource<Int, PokemonItemResult>() {

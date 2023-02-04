@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/pokemonListFragment"
-        android:name="github.preeti5sharon.pokemonapp.PokemonListFragment"
+        android:name="github.preeti5sharon.pokemonapp.fragment.PokemonListFragment"
         android:label="PokemonListFragment" >
         <action
             android:id="@+id/action_pokemonListFragment_to_pokemonDetailsFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/pokemonDetailsFragment"
-        android:name="github.preeti5sharon.pokemonapp.PokemonDetailsFragment"
+        android:name="github.preeti5sharon.pokemonapp.fragment.PokemonDetailsFragment"
         android:label="PokemonDetailsFragment" >
         <argument
             android:name="index"

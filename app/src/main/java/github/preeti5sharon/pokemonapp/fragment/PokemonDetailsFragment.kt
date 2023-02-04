@@ -1,15 +1,19 @@
-package github.preeti5sharon.pokemonapp
+package github.preeti5sharon.pokemonapp.fragment
 
+
+import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import coil.load
 import dagger.hilt.android.AndroidEntryPoint
+import github.preeti5sharon.pokemonapp.R
+import github.preeti5sharon.pokemonapp.calcDominantColor
 import github.preeti5sharon.pokemonapp.databinding.FragmentPokemonDetailsBinding
+import github.preeti5sharon.pokemonapp.viewmodel.PokemonDetailsViewModel
 
 @AndroidEntryPoint
 class PokemonDetailsFragment : Fragment() {
@@ -27,6 +31,7 @@ class PokemonDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        requireActivity().actionBar?.setDisplayShowHomeEnabled(true)
         viewModel.getPokemonDetails(navArgs.index)
         viewModel.pokemonDetailsData.observe(viewLifecycleOwner) {
             binding?.imageView?.load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${navArgs.index}.png") {
@@ -40,7 +45,7 @@ class PokemonDetailsFragment : Fragment() {
             }
             binding?.textView?.text = it.name?.capitalize()
             binding?.textViewHeight?.text = getString(R.string.height, it.height?.times(10))
-            binding?.textViewWeight?.text = getString(R.string.weight, it.weight?.toFloat()?.div(10))
+            binding?.textViewWeight?.text = getString(R.string.weight, it.weight?.div(10))
         }
     }
 
@@ -48,6 +53,4 @@ class PokemonDetailsFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
-
-
 }
