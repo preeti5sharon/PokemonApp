@@ -28,13 +28,14 @@ class PokemonListFragment : Fragment() {
     ): View? {
         _binding = FragmentPokemonListBinding.inflate(layoutInflater)
         return _binding?.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         pokemonListAdapter.onClick = {
-            findNavController().navigate(PokemonListFragmentDirections.actionPokemonListFragmentToPokemonDetailsFragment(it))
+            findNavController().navigate(
+                PokemonListFragmentDirections.actionPokemonListFragmentToPokemonDetailsFragment(it)
+            )
         }
         _binding?.recyclerView?.adapter = pokemonListAdapter
         lifecycleScope.launch() {

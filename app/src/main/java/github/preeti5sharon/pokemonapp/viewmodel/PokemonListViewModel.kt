@@ -10,6 +10,6 @@ import javax.inject.Inject
 @HiltViewModel
 class PokemonListViewModel @Inject constructor(
     private val repository: PokemonRepository
-): ViewModel() {
+) : ViewModel() {
     fun getPokemonList() = repository.getPokemonList().cachedIn(viewModelScope)
 }

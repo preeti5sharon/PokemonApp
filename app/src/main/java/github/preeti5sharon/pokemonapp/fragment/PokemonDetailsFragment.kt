@@ -1,11 +1,10 @@
 package github.preeti5sharon.pokemonapp.fragment
 
-
-import android.app.Fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import coil.load
@@ -34,7 +33,9 @@ class PokemonDetailsFragment : Fragment() {
         requireActivity().actionBar?.setDisplayShowHomeEnabled(true)
         viewModel.getPokemonDetails(navArgs.index)
         viewModel.pokemonDetailsData.observe(viewLifecycleOwner) {
-            binding?.imageView?.load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${navArgs.index}.png") {
+            binding?.imageView?.load(
+                "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${navArgs.index}.png"
+            ) {
                 crossfade(true)
 //            placeholder(R.drawable.image)
 //            transformations(CircleCropTransformation())

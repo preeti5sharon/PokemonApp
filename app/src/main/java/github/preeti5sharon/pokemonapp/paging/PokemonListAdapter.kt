@@ -22,7 +22,9 @@ class PokemonListAdapter :
         val pokemonIndex = item?.url?.dropLast(1)?.takeLastWhile {
             it.isDigit()
         } ?: position + 1
-        binding.imageView.load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$pokemonIndex.png") {
+        binding.imageView.load(
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$pokemonIndex.png"
+        ) {
             crossfade(true)
 //            placeholder(R.drawable.image)
 //            transformations(CircleCropTransformation())

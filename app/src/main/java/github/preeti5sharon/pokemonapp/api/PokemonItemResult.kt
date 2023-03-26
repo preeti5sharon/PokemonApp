@@ -1,6 +1,5 @@
 package github.preeti5sharon.pokemonapp.api
 
-
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
